@@ -2,8 +2,8 @@
 
 An AI-powered dashboard that connects to a live AWS account, pulls real security and cost data, and uses Claude AI to generate plain-English analysis and recommendations.
 
-![Dashboard Screenshot](screenshots/dashboard2.png)
 ![Dashboard Screenshot](screenshots/dashboard1.png)
+![Dashboard Screenshot](screenshots/dashboard2.png)
 
 ## 🚀 What It Does
 
