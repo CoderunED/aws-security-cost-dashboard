@@ -1,55 +1,61 @@
-# AWS Security & Cost Dashboard
+# 🔐 AWS Security Cost Dashboard
 
-An AI-powered dashboard that connects to a live AWS account, pulls real
-cost and security data, and uses Claude AI to answer questions like
-"What are my biggest security risks this week?" and
-"Where am I wasting money on AWS?"
+An AI-powered dashboard that connects to a live AWS account, pulls real security and cost data, and uses Claude AI to generate plain-English analysis and recommendations.
 
-## The Problem
-Cloud teams spend 2+ hours per week manually reviewing AWS Cost Explorer,
-Security Hub, and Trusted Advisor separately. Critical security findings
-get missed. Cost waste goes unnoticed. There is no unified AI layer to
-explain what matters most.
+![Dashboard Screenshot](screenshots/dashboard.png)
 
-## The Solution
-This dashboard pulls live data from three AWS services, runs AI analysis
-automatically, and gives engineers and managers a single place to
-understand their cloud security posture and cost efficiency.
+## 🚀 What It Does
 
-## Features
-- Live AWS cost data — spend by service, month-over-month trends
-- Security Hub findings — grouped by severity with AI explanations
-- Trusted Advisor recommendations — cost + security checks
-- Claude AI chatbot — ask any question about your AWS account
-- Weekly AI report — auto-generated executive summary
-- Cost savings calculator — identifies unused resources with $ estimates
+- Pulls **live security findings** from AWS Security Hub
+- Monitors **AWS spend** via Cost Explorer
+- Uses **Claude AI** to analyze findings and surface the most critical risks
+- Runs **automatically every Monday** via GitHub Actions
 
-## Tech Stack
-- AWS Cost Explorer — billing and spend data
-- AWS Security Hub — security findings
-- AWS Trusted Advisor — cost and security recommendations
-- Boto3 — Python SDK for AWS
-- Claude API — AI-powered analysis and chatbot
-- Streamlit — interactive dashboard UI
-- GitHub Actions — automated weekly data collection
+## 📊 Real Metrics
 
-## Current Status
-- [ ] AWS CLI + Boto3 connected to live account
-- [ ] Cost Explorer data pipeline
-- [ ] Security Hub findings pipeline
-- [ ] Trusted Advisor recommendations pipeline
-- [ ] Claude AI analysis layer
-- [ ] Streamlit dashboard UI
-- [ ] AI chatbot interface
-- [ ] Weekly automated reports
-- [ ] Demo mode for recruiters
+- **16 active security findings** detected across 1 AWS account
+- **1 critical misconfiguration** identified (AWS Config disabled)
+- **15 monitoring gaps** found across IAM, VPC, CloudTrail, and S3
+- **2 AWS services** monitored for cost anomalies
+- **Claude AI** generates plain-English insights on demand
 
-## Metrics (updating as built)
-- AWS services monitored: TBD
-- Security findings surfaced: TBD
-- Potential cost savings identified: TBD
-- Manual review time saved: TBD
+## 🛠️ Tech Stack
 
-## What's Next
-Setting up AWS CLI, creating a read-only IAM user, and connecting
-Boto3 to pull live cost data.
+| Tool | Purpose |
+|------|---------|
+| AWS Security Hub | Security findings |
+| AWS Cost Explorer | Billing data |
+| Boto3 | AWS Python SDK |
+| Claude API | AI analysis layer |
+| Streamlit | Dashboard UI |
+| GitHub Actions | Automated weekly scans |
+
+## ⚙️ Setup
+
+1. Clone the repo
+2. Install dependencies
+```bash
+pip install boto3 anthropic streamlit
+```
+3. Configure AWS credentials
+```bash
+aws configure
+```
+4. Set your Anthropic API key
+```bash
+export ANTHROPIC_API_KEY=your_key_here
+```
+5. Run the dashboard
+```bash
+streamlit run dashboard/app.py
+```
+
+## 🔄 Automated Scanning
+
+GitHub Actions runs a full security scan every Monday at 9am UTC. Results are logged directly in the Actions tab.
+
+## 📝 Resume Bullets
+
+- Detected 16 active security misconfigurations across a live AWS account, including 1 critical finding, by building an AI-powered dashboard integrating AWS Security Hub, Cost Explorer, and Claude AI for automated analysis.
+- Reduced cloud security triage time by generating instant plain-English risk summaries using Claude AI, replacing manual review of raw AWS Security Hub JSON findings.
+- Automated weekly AWS security posture monitoring across IAM, VPC, CloudTrail, and S3 by deploying GitHub Actions to run scheduled scans with zero manual intervention.
